@@ -31,6 +31,7 @@ const sanitizeOption = {
 
 export const checkOwnPost = (ctx, next) => {
   const { user, post } = ctx.state;
+  console.log(user, post);
   if (post.user._id.toString() !== user._id) {
     ctx.status = 403;
     return;
@@ -51,6 +52,7 @@ export const getPostById = async (ctx, next) => {
       return;
     }
     ctx.state.post = post;
+    console.log(ctx.state);
     return next();
   } catch (e) {
     ctx.throw(500, e);

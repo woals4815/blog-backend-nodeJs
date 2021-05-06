@@ -3,6 +3,7 @@ import User from '../models/user';
 
 const jwtMiddleware = async (ctx, next) => {
   const token = ctx.cookies.get('access_token');
+  console.log(token);
   if (!token) return next();
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);

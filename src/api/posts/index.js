@@ -10,16 +10,16 @@ posts.post('/', checkLoggedIn, postsCtrl.write);
 posts.get('/:id', postsCtrl.getPostById, postsCtrl.read);
 posts.delete(
   '/:id',
+  postsCtrl.getPostById,
   checkLoggedIn,
   postsCtrl.checkOwnPost,
-  postsCtrl.getPostById,
   postsCtrl.remove,
 );
 posts.patch(
   '/:id',
+  postsCtrl.getPostById,
   checkLoggedIn,
   postsCtrl.checkOwnPost,
-  postsCtrl.getPostById,
   postsCtrl.update,
 );
 
